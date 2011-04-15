@@ -1,0 +1,44 @@
+An Oscillator module to be used as a plugin with the Impact javascript game engine (http://impactjs.com/).
+    This module essentially allows for oscillation between two time durations or phases. This can be useful for example if you want an entity buidling to shake for 3 seconds and then stop for 2 seconds and then repeat this again for 8 cycles. 
+
+
+How to use:
+Create a new plugins folder if one does not exist: lib/plugins
+Create a new folder called director: lib/plugins/oscillator
+Place the oscillator.js file within that folder.
+Within the main.js file, require: 'plugins.oscillator.oscillator'
+
+
+Examples:
+
+  - Create a new oscillator:
+      this.oscillator = new ig.Oscillator([3,2],8);
+        //Initializes a new oscillator. The first parameter contains the times of the two phases in seconds.
+        //In this case 3 then 2 seconds. The second parameter is the number of cycles that should be repeated.
+      this.oscillator = new ig.Oscillator(2);
+        //Initializes a new oscillator, but since the first parameter is an integer, it will initialze both phases
+        //with 2 seconds. If the second parameter is not specified, then the oscillator will continue indefinitely.
+
+  - Apply new settings to the oscillator:
+      this.oscillator.set([1,6], 5);
+        //Works identically as in initializing above.
+
+  - Reset the oscillator to the last settings:
+       this.oscillator.reset();
+
+  - Get the current phase:
+      phase = this.oscillator.phase();
+        //Return the current phase number in the cycle. 
+        //This is essentially the 0 1 output you would get from a digital oscillation.
+        //0: First portion of cycle.
+        //1: Second portion of cycle.
+        //-1: All cycles completed.
+
+  - Get the current cycle
+      cycle = this.oscillator.currentCycle();
+        //Returns the current cycle number. Note the first cycle starts at 1 (not 0).
+
+  - Get the delta of the oscillator timer
+      delta = this.oscillator.delta();
+        //A single ig.Timer is started when the oscillator is intialized, set or reset.
+
