@@ -4,7 +4,7 @@ An Oscillator module to be used as a plugin with the Impact javascript game engi
 
 How to use:
 Create a new plugins folder if one does not exist: lib/plugins
-Create a new folder called director: lib/plugins/oscillator
+Create a new folder called oscillator: lib/plugins/oscillator
 Place the oscillator.js file within that folder.
 Within the main.js file, require: 'plugins.oscillator.oscillator'
 
